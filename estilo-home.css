@@ -1,0 +1,83 @@
+body{
+	background: url(/img/Background.jpg);
+}
+/*PAGINA PRINCIPAL*/
+body .container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+body .container {
+	padding-bottom: 60px;
+	padding-top: 60px;
+	box-sizing: border-box;
+	width: 200px;
+	margin-bottom: 30px;
+	margin: 0 auto;
+	text-align: center;
+
+}
+.btn{
+	width: 100%;
+	border-radius: 7px;
+	display: inline-block;
+	padding: 20px 15px;
+	text-decoration: none;
+	font-family: 'Press Start 2P', cursive;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.btn-color{
+	color: white;
+	background-color: #30B77E;
+}
+
+.btn2{
+	margin-bottom: 10px;
+	width: 100%;
+	border-radius: 7px;
+	display: inline-block;
+	padding: 20px 15px;
+	text-decoration: none;
+	font-family: 'Press Start 2P', cursive;
+	text-align: center;
+}
+.btn-color2{
+	color: white;
+	background-color: #30B77E;
+}
+
+.btn3{
+	margin-top: 10px;
+	text-align: center;
+	width: 100%;
+	border-radius: 7px;
+	display: inline-block;
+	padding: 20px 15px;
+	text-decoration: none;
+	font-family: 'Press Start 2P', cursive;
+	margin: 0 auto;
+	text-align: center;
+}
+.btn-color3{
+	color: white;
+	background-color: #30B77E;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {...} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {...} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {...} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	
+
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {...}
