@@ -1,3 +1,7 @@
+<?php  // 7a0
+  $rta2 = "Ganaste!";
+  $rta = "Segui participando";
+  ?>
 <!DOCTYPE html>
 <! jugar.php JUEGO TRIVIA>
 <html lang="en" dir="ltr">
@@ -5,14 +9,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jugar a Trivia - Preguntas y Respuestas!</title>
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/stylepyr.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo-header.css">
+    <link rel="stylesheet" href="css/estilo-footer.css">
   </head>
-  <body style="font-family:Consolas;">
+  <body style="font-family:Consolas; background-image: url(../img/Background.jpg);
+	font-family: Tahoma;">
     <?php include_once("header.php"); ?>
     <div class="caja jumbotron bg-light block-center" id="cajita">
-    <img class="pyr mx-auto d-block rounded-circle img-thumbnail" id="minipregres"src="img/trivia.jpg" alt="preguntasyrespuestas"><br>
+    <img class="pyr mx-auto d-block rounded-circle img-thumbnail" src="img/trivia.jpg" alt="preguntasyrespuestas" style="width:300px;height:250px;"><br>
     <h3 class="question text-center">¿Quien convirtió el séptimo gol en la histórica goleada <br> de Estudiantes 7-0 Gimnasia?</h3>
     <hr class="my-4">
     <div class="progress" style="height:40px;">
@@ -23,10 +28,10 @@
           <p style="text-align:center;padding:8px;font-size: 15px;color:lightyellow;">50% restante</p></div></div>
     <hr class="my-4">
     <div class="botonesr btn-group-vertical mx-auto d-block" id="botones">
-      <button type="button" class="btn mx-auto d-block btn-outline-warning btn-lg">Pablo 'El Payaso' Luguercio</button><br>
-      <button type="button" class="btn mx-auto d-block btn-outline-success btn-lg">Jose Luis 'Caldera' Calderón</button><br>
-      <button type="button" class="btn mx-auto d-block btn-outline-danger btn-lg">Juan Sebastian 'La Brujita' Verón</button><br>
-      <button type="button" class="btn mx-auto d-block btn-outline-primary btn-lg">Mariano 'El Tanque' Pavone</button>
+      <button type="submit" class="btn mx-auto d-block btn-outline-warning btn-lg" value="<?php echo $rta;?>">Pablo 'El Payaso' Luguercio</button><br>
+      <button type="submit" class="btn mx-auto d-block btn-outline-success btn-lg" value="<?php echo $rta2;?>">Jose Luis 'Caldera' Calderón</button><br>
+      <button type="submit" class="btn mx-auto d-block btn-outline-danger btn-lg" value="<?php echo $rta;?>">Juan Sebastian 'La Brujita' Verón</button><br>
+      <button type="submit" class="btn mx-auto d-block btn-outline-primary btn-lg" value="<?php echo $rta;?>">Mariano 'El Tanque' Pavone</button>
       </div>
     </div>
     <?php include_once("footer.php"); ?>
