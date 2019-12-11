@@ -16,7 +16,7 @@
       <h1 class="text-white">Jugar</h1>
     </nav>
     <div class="caja jumbotron bg-light block-center" id="cajita" style="background-color:#2E2E2E!important; margin: 0; border-radius: 0">
-    <img class="pyr mx-auto d-block rounded-circle img-thumbnail" src="img/trivia.jpg" alt="preguntasyrespuestas" style="width:300px;height:250px;"><br>
+    <img class="pyr mx-auto d-block rounded-circle img-thumbnail" src="img/7a0.jpg" alt="preguntasyrespuestas" style="width:300px;height:250px;"><br>
     <h3 class="question text-center" style="color:#fff!important;">¿Quien convirtió el séptimo gol en la histórica goleada <br> de Estudiantes 7-0 Gimnasia?</h3>
     <hr class="my-4">
     <div class="progress" style="height:40px;">
