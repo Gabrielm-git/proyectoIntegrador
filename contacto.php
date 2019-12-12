@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Contacto</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	 crossorigin="anonymous">
 
@@ -12,7 +13,7 @@
 <body style="background-image: url(../img/Background.jpg);">
 	<?php include("header.php") ?>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-		<h1 class="text-white">Contacto</h1>
+		<h3 class="text-white">Contacto</h3>
 	</nav>
 	<div class="container border" style="background-color: #2E2E2E"!important;>
 		<br />

@@ -13,7 +13,7 @@
 	font-family: Tahoma;">
     <?php include_once("header.php"); ?>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-      <h1 class="text-white">Jugar</h1>
+      <h3 class="text-white">Jugar</h3>
     </nav>
     <div class="caja jumbotron bg-light block-center" id="cajita" style="background-color:#2E2E2E!important; margin: 0; border-radius: 0">
     <img class="pyr mx-auto d-block rounded-circle img-thumbnail" src="img/7a0.jpg" alt="preguntasyrespuestas" style="width:300px;height:250px;"><br>
