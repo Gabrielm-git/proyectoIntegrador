@@ -40,6 +40,13 @@
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Búsqueda" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">BUSCAR</button>
+  <?php if(!isset($_SESSION['email'])): ?>
+                <a class="btn btn-primary mr-2" href="registro.php" role="button">Registro</a>
+                <a class="btn btn-secondary mr-2" href="login.php" role="button">Login</a>
+                <?php endif; ?>
+                <?php if(isset($_SESSION['email'])): ?>
+                <a class="btn btn-danger" href="logout.php" role="button">Log out</a>
+                <?php endif; ?>
         </form>
       </div>
     </nav>
