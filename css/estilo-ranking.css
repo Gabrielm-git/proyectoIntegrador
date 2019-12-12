@@ -1,5 +1,5 @@
 body {
-	background-image: url(../img/Background.jpg);
+	background-image: url(./img/Background.jpg);
 	font-family: ZCOOL KuaiLe, 'Press Start 2P';
 	color: #989c9b;
 }
@@ -37,6 +37,7 @@ tr th {
 }
 
 td, th {
+		border-bottom: solid 1px black;
     padding: 0;
     text-align: left;
 }
@@ -53,6 +54,7 @@ tbody tr:hover {
 }
 
 td.rank {
+	border-bottom: solid 1px black;
 	padding: 1em 0;
 	font-size: 10px;
 	font-family: 'Press Start 2P';
@@ -60,12 +62,15 @@ td.rank {
 	text-align: center;
 }
 td.team {
+	border-bottom: solid 1px black;
 	padding: 1em 0;
 	font-size: 10px;
 	font-family: 'Press Start 2P';
 	text-align: center;
 }
 td.points {
+	border-bottom: solid 1px black;
+	border-right: solid 1px black;
 	padding: 1em 0;
 	font-size: 10px;
 	font-family: 'Press Start 2P';
