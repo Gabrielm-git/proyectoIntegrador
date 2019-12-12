@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Ranking</title>
   
   <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -16,7 +16,11 @@
   <?php
   include ("header.php");
    ?>
-  
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+      <h1 class="text-white">Ranking</h1>
+    </nav>
+ 	<div class="container">
+    <section> 
    <!--Table-->
 <table class="table table-striped w-auto">
 
@@ -124,7 +128,8 @@
 </table>
 <!--Table-->
 
-
+ </section>
+  </div>
   
     <?php
     include ("footer.php");
