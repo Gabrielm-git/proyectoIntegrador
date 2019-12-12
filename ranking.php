@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
   </head>
-  <body>
- <?php include("header.php") ?>
+  <body style="background-image: url(../img/Background.jpg)">
+    <?php include("header.php") ?>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
       <h3 class="text-white">Ranking</h3>
     </nav>
@@ -29,61 +29,61 @@
         </thead>
         <tbody>
           <tr>
-              <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+              <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">Juan <br> Medel</td>
               <td class="rank">1</td>
               <td class="points">1460</td>
             </tr>
           <tr>
-              <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+              <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">Valentín <br> Ricci</td>
               <td class="rank">2</td>
               <td class="points">1340</td>
             </tr>
             <tr>
-              <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+              <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">Gabriel <br> Mazzacane</td>
               <td class="rank">3</td>
               <td class="points">1245</td>
             </tr>
             <tr>
-              <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+              <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">Leonel <br> Caballero</td>
               <td class="rank">4</td>
               <td class="points">1210</td>
             </tr>
             <tr>
-              <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+              <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">Ignacio <br> Serrano</td>
               <td class="rank">5</td>
               <td class="points">1186</td>
             </tr>
             <tr>
-              <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+              <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">Mariana <br> Molina</td>
               <td class="rank">6</td>
               <td class="points">1181</td>
             </tr>
             <tr>
-              <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+              <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">Lionel <br> Messi</td>
               <td class="rank">7</td>
               <td class="points">1178</td>
             </tr>
             <tr>
-              <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+              <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">Matias <br> Díaz</td>
               <td class="rank">8</td>
               <td class="points">1161</td>
             </tr>
             <tr>
-              <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+              <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">José <br> Bianchi</td>
               <td class="rank">9</td>
               <td class="points">1115</td>
             </tr>
           <tr>
-            <td><img src="/img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
+            <td><img src="img/perfil.png" alt="perfil" width="35px" height="30px"/></td>
               <td class="team">Oriana <br> Ríos</td>
               <td class="rank">10</td>
               <td class="points">1082</td>
