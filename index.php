@@ -2,17 +2,17 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Index</title>
+  <title>Trivia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/estilo-home.css">
+  <link rel="stylesheet" href="css/estilo-index.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body style="background-color: yellow"!important;>
+<body style="background-color: #dac300"!important;>
 
-  <div class="jumbotron jumbotron-fluid" style="background-color: yellow"!important;>
+  <div class="jumbotron jumbotron-fluid" style="background-color: #dac300"!important;>
     <div class="container">
       <div class="contenedor">
         <h2 style="font-family: 'Press Start 2P'"!important;>BIENVENIDO<span>&#160;</span></h2><br>
@@ -24,7 +24,7 @@
    <br>
    <br>
   <div class="text-center mt-5">
-      <p class="footer-alt mb-0 f-14">2019 Copyright � Todos los derechos reservados.</p>
+      <p class="footer-alt mb-0 f-14">2019 Copyright © Todos los derechos reservados.</p>
     </div>
     </div>
  </div>

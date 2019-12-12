@@ -20,7 +20,7 @@ body .jumbotron .container button {
 
 body {
 	font-family: monospace;
-	background: yellow;
+	background: #dac300;
 }
 .contenedor {
   box-sizing: border-box;
@@ -32,7 +32,7 @@ h2 {
   padding: 0;
 	position: relative;
 	float: left;
-	background: yellow;
+	background: #dac300;
 	color: #fff;
 }
 
@@ -41,10 +41,9 @@ h2 span {
     position:absolute;
     right:0;
     width:0;
-    background: yellow;
+    background: #dac300;
     animation: escribir 1s steps(100);
 }
-
 @keyframes escribir {
     from { width: 100% }
     to { width:0 }
