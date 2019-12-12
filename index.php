@@ -17,7 +17,8 @@
       <h2 class="display-4">BIENVENIDO <br> A <br> TRIVIA </h2>
        <br>
       <button type="button" class="btn btn-outline-success" onclick="location.href = 'home.php'">INGRESAR</button>
-
+  <br>
+  <br>
       <div class="text-center mt-5">
         <p class="footer-alt mb-0 f-14">2019 Copyright © Todos los derechos reservados.</p>
       </div>
