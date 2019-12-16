@@ -17,7 +17,7 @@
 	</nav>
 	<div class="container border" style="background-color: #2E2E2E"!important;>
 		<br />
-		<form action="ok.html" method="post">
+		<form action="enviar_mensaje.php" method="post">
 			<div class="form-group">
 				<label for="text" style="color: white"!important;>Nombre:</label>
 				<input type="tetx" class="form-control text-info border-info border-top-0 border-left-0 border-right-0" id="name" placeholder="Nombre" name="name" required>
@@ -34,7 +34,7 @@
 
 			<div class="form-group">
 				<label for="exampleTextarea" style="color: white"!important;>Comentario:</label>
-				<textarea class="form-control text-info border-info" id="exampleTextarea" rows="3" placeholder="Escriba aquí su comentario..."></textarea>
+				<textarea class="form-control text-info border-info" id="exampleTextarea" name="consulta" rows="3" placeholder="Escriba aquí su comentario..."></textarea>
 			</div>
 			<center>
 				<button type="reset" class="btn btn-outline-secondary" style="color: white"!important;>Borrar</button>
