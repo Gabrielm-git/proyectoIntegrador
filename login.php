@@ -31,7 +31,7 @@ if($_POST['tab']=="log.php"){
 if($_POST) {
     $arrayDeErrores = validarRegistracion($_POST);
     if(count($arrayDeErrores) === 0) {
-        // LOGUEO AL USUARIO
+        // LOGUEO AL USUARIO (ACA FALLA LOGUIN )
         $arrayUsuarios = abrirBBDD('usuarios.json');
         foreach($arrayUsuarios as $usuarioJson) {
             $userFinal = json_decode($usuarioJson, true);
