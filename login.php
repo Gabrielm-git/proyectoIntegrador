@@ -1,92 +1,35 @@
 <?php
-    session_start();
-    // Funciones
-  function pre($algo) {
-    echo '<pre>';
-    var_dump($algo);
-    echo '</pre>';   }
-  function dd($algo) {
-    pre($algo);
-    exit; }
-  function validarRegistracion($unArray) {
-    $errores = [];
-    // Validacion nombre
-    if( isset($unArray['nombre']) ) {
-        if( empty($unArray['nombre']) ) {
-            $errores['nombre'] = "ERROR: Este campo debe completarse.";
-        }
-        elseif( strlen($unArray['nombre']) < 2 ) {
-            $errores['nombre'] = "ERROR: Tu nombre debe tener al menos 2 caracteres.";
-          } }
-    // Validacion email
-    if( isset($unArray['email']) ) {
-        if( empty($unArray['email']) ) {
-            $errores['email'] = "ERROR: Este campo debe completarse.";
-        }
-        elseif( !filter_var($unArray['email'], FILTER_VALIDATE_EMAIL) ) {
-            $errores['email'] = "ERROR: Debés ingresar un email válido.";
-          }
-          $arrayUsuarios= json_decode(file_get_contents("../usuarios.json"), true);
-          foreach ($arrayUsuarios as $usuario) {
-            if($usuario['email'] == $unArray['email']){
-              $errores['email'] = "ERROR: Email ya ingresado"; }  }
-          echo var_dump($errores);  }
-    if( isset($unArray['password']) ) {
-        if( empty($unArray['password']) ) {
-            $errores['password'] = "ERROR: Este campo debe completarse.";
-        }
-        elseif( strlen($unArray['password']) < 6 ) {
-            $errores['password'] = "ERROR: Tu contraseña debe tener al menos 6 caracteres.";
-        }    }
-    if( isset($unArray['repassword']) ) {
-        if( empty($unArray['repassword']) ) {
-            $errores['repassword'] = "ERROR: Este campo debe completarse.";
-        }
-        elseif($unArray['password'] != $unArray['repassword']) {
-            $errores['repassword'] = "ERROR: Tenés que ingresar la misma contraseña";
-        }  }
-    return $errores;
-}
-function persistirDato($arrayE, $campo) {
-    if( isset($arrayE[$campo]) ) {
-        return "";
-    } else {
-        if(isset($_POST[$campo])) {
-            return $_POST[$campo];
-        } } }
-function armarArrayUsuario() {}
-function abrirBBDD($unArchivo) {
-    $usuariosGuardados = file_get_contents($unArchivo);
-    $explodeDeUsuarios = explode(PHP_EOL, $usuariosGuardados);
-    array_pop($explodeDeUsuarios);
-    return $explodeDeUsuarios;
-}
-$arrayError = "";
+
+session_start();
+require_once 'controladores/funciones.php';
+
+$arrayDeErrores = "";
+
 if($_POST) {
-    $arrayError = validarRegistracion($_POST);
-    if(count($arrayError) === 0) {
-        // Login
-        $arrayUsuarios = abrirBBDD('usuarios.json');
-        foreach($arrayUsuarios as $usuarioJson) {
-            $userFinal = json_decode($usuarioJson, true);
-            if($_POST['email'] == $userFinal['email']) {
-                if(password_verify($_POST['password'], $userFinal['password'])) {
-                    // Session
-                    $_SESSION['email'] = $userFinal['email'];
-                    if(isset($_POST['recordarme']) && $_POST['recordarme'] == "on") {
-                        // Cookies
-                        setcookie('userEmail', $userFinal['email'], time() + 60 * 60 * 24 * 7);
-                        setcookie('userPass', $userFinal['password'], time() + 60 * 60 * 24 * 7);
-                    }
-                    header('Location: welcome.php');
-                    exit;
-                } } } } }
+    $arrayDeErrores = validarRegistracion($_POST);
+    if(count($arrayDeErrores) === 0) {
+        // REGISTRO AL USUARIO
+        $usuarioFinal = [
+            'nombre' => trim($_POST['usuario']),
+            'email' => $_POST['email'],
+            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)
+        ];
+        // ENVIAR A LA BASE DE DATOS $usuarioFinal
+        $jsonDeUsuario = json_encode($usuarioFinal);
+        file_put_contents('usuarios.json', $jsonDeUsuario . PHP_EOL, FILE_APPEND);
+        header("Location: login.php");
+        exit;
+    }
+}
+
+
 ?>
+
+
 <!DOCTYPE html>
-<html lang="es" dir="ltr" xml:lang="es">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Acceder</title>
     <link rel="stylesheet" href="css/estilo-header.css">
     <link rel="stylesheet" href="css/estilo-login.css">
@@ -97,24 +40,24 @@ if($_POST) {
   <body style="background-image: url(../img/Background.jpg)">
     <?php include("header.php") ?>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-      <h3 class="text-white">Acceder</h3>
+      <h1 class="text-white">Acceder</h1>
     </nav>
-    <form class="formulario" action="login.php" method="post">
-    <div class="jumbotron jumbotron-fluid" style="background-image: url(../img/Background.jpg)">
+    <form class=""  method="post">
+    <div class="jumbotron jumbotron-fluid" style="background-image: url(../img/Background.jpg); margin: 0;">
       <div class="container">
         <div class="login-wrap">
     	<div class="login-html">
-    		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Ingresar</label>
-    		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarme</label>
+    		<input id="tab-1" type="radio" name="tab" class="sign-in" value="log.php" checked><label for="tab-1" class="tab" style="cursor: pointer";>Ingresar</label>
+    		<input id="tab-2" type="radio" name="tab" class="sign-up" value="alta.php"><label for="tab-2" class="tab" style="cursor: pointer";>Registrarme</label>
     		<div class="login-form">
     			<div class="sign-in-htm">
     				<div class="group">
     					<label for="user" class="label">Usuario</label>
-    					<input id="user" type="text" class="input">
+    					<input id="user" type="text" class="input" name="usuario">
     				</div>
     				<div class="group">
     					<label for="pass" class="label">Contraseña</label>
-    					<input id="pass" type="password" class="input" data-type="password">
+    					<input id="pass" type="password" class="input" data-type="password" name="password">
     				</div>
     				<div class="group">
     					<input id="check" type="checkbox" class="check" checked>
@@ -125,37 +68,31 @@ if($_POST) {
     				</div>
     				<div class="hr"></div>
     				<div class="foot-lnk">
-    					<a href="#recuperar">Olvidaste la contraseña?</a>
+    					<a href="#recuperar" style='text-decoration:none;color:white';>Olvidaste la contraseña?</a>
     				</div>
     			</div>
     			<div class="sign-up-htm">
             <div class="group">
               <label for="name" class="label">Nombre</label>
-              <input id="name" type="text" class="input">
-              <small class="text-danger"><?= isset($arrayError['nombre']) ? $arrayError['nombre'] : "" ?></small>
+              <input id="name" type="text" class="input" name="nombre">
             </div>
-            <div class="group">
-    					<label for="email" class="label">Email</label>
-    					<input id="email" type="text" class="input">
-              <small class="text-danger"><?= isset($arrayError['email']) ? $arrayError['email'] : "" ?></small>
-    				</div>
-            <div class="group">
-    					<label for="pass" class="label">Contraseña</label>
-    					<input id="pass" type="password" class="input" data-type="password">
-              <small class="text-danger"><?= isset($arrayError['password']) ? $arrayError['password'] : "" ?></small>
-    				</div>
-            <div class="group">
-                <label for="repass" class="label">Confirmar contraseña</label>
-                <input type="password" data-type="password" class="input" name="repassword">
-                <small class="text-danger"><?= isset($arrayDeErrores['repassword']) ? $arrayDeErrores['repassword'] : "" ?></small>
-            </div> <br>
     				<div class="group">
-    					<input type="submit" class="button" value="Crear cuenta">
+    					<label for="user" class="label">Usuario</label>
+    					<input id="user" type="text" class="input" name="usuario">
     				</div>
-    				<div class="hr"></div>
-    				<div class="foot-lnk">
-    					<a href="login.php" for="tab-1">Ya tienes cuenta?</a>
+    				<div class="group">
+    					<label for="pass" class="label">Contraseña</label>
+    					<input id="pass" type="password" class="input" data-type="password" name="password">
     				</div>
+    				<div class="group">
+    					<label for="email" class="label">Email</label>
+    					<input id="email" type="text" class="input" name="email">
+    				</div>
+    				<div class="group">
+    					<input type="submit" class="button" value="Registrarme">
+                                        <label class="tenesCuenta" for="tab-1" style="margin-top: 40px"!important;!important;>Ya tienes cuenta?</a>
+    				</div>
+    				
     			</div>
     		</div>
     	</div>
