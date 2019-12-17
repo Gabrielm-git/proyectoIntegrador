@@ -5,6 +5,10 @@ require_once 'controladores/funciones.php';
 
 $arrayDeErrores = "";
 
+
+if($_POST['tab']=="alta.php"){
+  
+
 if($_POST) {
     $arrayDeErrores = validarRegistracion($_POST);
     if(count($arrayDeErrores) === 0) {
@@ -17,11 +21,39 @@ if($_POST) {
         // ENVIAR A LA BASE DE DATOS $usuarioFinal
         $jsonDeUsuario = json_encode($usuarioFinal);
         file_put_contents('usuarios.json', $jsonDeUsuario . PHP_EOL, FILE_APPEND);
-        header("Location: login.php");
+        header("Location: login_php.php");
         exit;
     }
 }
+}
 
+if($_POST['tab']=="log.php"){
+if($_POST) {
+    $arrayDeErrores = validarRegistracion($_POST);
+    if(count($arrayDeErrores) === 0) {
+        // LOGUEO AL USUARIO
+        $arrayUsuarios = abrirBBDD('usuarios.json');
+        foreach($arrayUsuarios as $usuarioJson) {
+            $userFinal = json_decode($usuarioJson, true);
+            if($_POST['email'] == $userFinal['email']) {
+                if(password_verify($_POST['password'], $userFinal['password'])) {
+                    // Crearle una sesion
+                    $_SESSION['email'] = $userFinal['email'];
+                    if(isset($_POST['recordarme']) && $_POST['recordarme'] == "on") {
+                        // Unix time
+                        setcookie('userEmail', $userFinal['email'], time() + 60 * 60 * 24 * 7);
+                        setcookie('userPass', $userFinal['password'], time() + 60 * 60 * 24 * 7);
+                    }
+                    header('Location: index_php.php');
+                    exit;
+                }
+            }
+        }
+    }
+}
+
+
+}
 
 ?>
 
@@ -59,6 +91,7 @@ if($_POST) {
     					<label for="pass" class="label">Contraseña</label>
     					<input id="pass" type="password" class="input" data-type="password" name="password">
     				</div>
+
     				<div class="group">
     					<input id="check" type="checkbox" class="check" checked>
     					<label for="check"><span class="icon"></span> Recuérdame</label>
