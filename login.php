@@ -6,7 +6,7 @@ require_once 'controladores/funciones.php';
 $arrayDeErrores = "";
 
 
-if($_POST['tab']=="alta.php"){
+if($_POST['tab']=="registro"){
   
 
 if($_POST) {
@@ -21,17 +21,20 @@ if($_POST) {
         // ENVIAR A LA BASE DE DATOS $usuarioFinal
         $jsonDeUsuario = json_encode($usuarioFinal);
         file_put_contents('usuarios.json', $jsonDeUsuario . PHP_EOL, FILE_APPEND);
-        header("Location: login_php.php");
+        header("Location: login.php");
         exit;
     }
 }
 }
+$arrayDeErrores = 0;
+if($_POST['tab']=="login"){
 
-if($_POST['tab']=="log.php"){
 if($_POST) {
-    $arrayDeErrores = validarRegistracion($_POST);
-    if(count($arrayDeErrores) === 0) {
-        // LOGUEO AL USUARIO (ACA FALLA LOGUIN )
+   
+    ///$arrayDeErrores = validarRegistracion($_POST);
+   // if(count($arrayDeErrores) === 0) {
+         
+        // aca falla LOGUEO USUARIO
         $arrayUsuarios = abrirBBDD('usuarios.json');
         foreach($arrayUsuarios as $usuarioJson) {
             $userFinal = json_decode($usuarioJson, true);
@@ -50,7 +53,7 @@ if($_POST) {
             }
         }
     }
-}
+//}
 
 
 }
@@ -79,13 +82,13 @@ if($_POST) {
       <div class="container">
         <div class="login-wrap">
     	<div class="login-html">
-    		<input id="tab-1" type="radio" name="tab" class="sign-in" value="log.php" checked><label for="tab-1" class="tab" style="cursor: pointer";>Ingresar</label>
-    		<input id="tab-2" type="radio" name="tab" class="sign-up" value="alta.php"><label for="tab-2" class="tab" style="cursor: pointer";>Registrarme</label>
+    		<input id="tab-1" type="radio" name="tab" class="sign-in" value="login" checked><label for="tab-1" class="tab" style="cursor: pointer";>Ingresar</label>
+    		<input id="tab-2" type="radio" name="tab" class="sign-up" value="registro"><label for="tab-2" class="tab" style="cursor: pointer";>Registrarme</label>
     		<div class="login-form">
     			<div class="sign-in-htm">
     				<div class="group">
-    					<label for="user" class="label">Usuario</label>
-    					<input id="user" type="text" class="input" name="usuario">
+    					<label for="email" class="label">Email</label>
+    					<input id="email" type="text" class="input" name="email">
     				</div>
     				<div class="group">
     					<label for="pass" class="label">Contraseña</label>
