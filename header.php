@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+require_once 'controladores/funciones.php';
+
+?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr" xml:lang="es">
 <head>
@@ -33,9 +39,25 @@
           <li class="nav-item">
             <a class="nav-link" href="contacto.php">Contacto</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login.php">Acceder</a>
+<?php if(!isset($_SESSION['email'])): ?>
+                 <li class="nav-item">
+            <a class="nav-link" href="/logueo.php">Acceder</a>
           </li>
+              <li class="nav-item">
+            <a class="nav-link" href="/registrarse.php">Registro</a>
+          </li>
+                <?php endif; ?>
+                
+<?php if(isset($_SESSION['email'])): ?>
+<?php $_SESSION['email'] ?>
+<?php  echo '<span style="color:white;">Bienvenido <strong>' . $_SESSION['email'] . '</strong></span> ';  ?>
+<a class="btn btn-danger" href="cerrar-sesion.php" role="button">Log out</a>;
+                     
+
+                
+              <?php endif; ?>
+
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Búsqueda" aria-label="Search">
